@@ -1,4 +1,4 @@
-declare module "ThemeBuilder" {
+declare module "ReactStylus" {
   export interface ColorProfile {
     origin: string;
     tint?: string;
@@ -43,7 +43,7 @@ declare module "ThemeBuilder" {
     complimentaryColorsAreSet?: boolean;
     statusColorsAreSet?: boolean;
   }
-  export type ThemeBuilderProps = {
+  export type ReactStylusProps = {
     colors?: Colors;
     backgroundDark?: string;
     backgroundLight?: string;
@@ -97,8 +97,8 @@ declare module "ThemeBuilder" {
     whatIsSet(): IsSet;
   }
 
-  class ThemeBuilder implements Theming {
-    constructor(props: ThemeBuilderProps);
+  class ReactStylusStore implements Theming {
+    constructor(props: ReactStylusProps);
     setMode(mode: ModeSelect): void;
     getMode(): string;
     getColors(): ColorsMode | void;

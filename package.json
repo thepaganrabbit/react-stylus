@@ -5,7 +5,11 @@
   "main": "index.js",
   "author": "thepaganrabbit",
   "license": "MIT",
+  "scripts": {
+    "format": "prettier --config .prettierrc 'lib/**/*.ts' --write"
+  },
   "devDependencies": {
-    "@types/react": "^18.0.15"
+    "@types/react": "^18.0.15",
+    "prettier": "^2.7.1"
   }
 }

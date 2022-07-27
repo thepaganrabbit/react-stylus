@@ -1,6 +1,5 @@
-import React from "react";
-import { ThemeBuilder } from "./lib/ThemeBuilder";
+import React from 'react'
+import { ReactStylus } from './lib/ReactStylus'
 
-export const ReactStylusProvider = React.createContext<ThemeBuilder | null>(
-  null
-);
+export const ReactStylusProvider = React.createContext<ReactStylus | null>(null)
+
