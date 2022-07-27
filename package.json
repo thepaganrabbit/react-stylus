@@ -1,0 +1,11 @@
+{
+  "name": "react-stylus",
+  "version": "1.0.0",
+  "description": "A react styling library. ",
+  "main": "index.js",
+  "author": "thepaganrabbit",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^18.0.15"
+  }
+}
