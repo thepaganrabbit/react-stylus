@@ -4,7 +4,7 @@
   "description": "A react styling library. ",
   "main": "index.js",
   "author": "thepaganrabbit",
-  "license": "MIT",
+  "license": "BSD",
   "scripts": {
     "format": "prettier --config .prettierrc 'lib/**/*.ts' --write"
   },

@@ -3,3 +3,4 @@ import { ReactStylus } from './lib/ReactStylus'
 
 export const ReactStylusProvider = React.createContext<ReactStylus | null>(null)
 
+export * from './lib/ReactStylus';
