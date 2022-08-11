@@ -6,6 +6,11 @@
   "types": "@types/reactstylus.d.ts",
   "author": "thepaganrabbit",
   "license": "BSD",
+  "bugs": "https://github.com/thepaganrabbit/react-stylus/issues",
+  "repository": {
+    "url": "https://github.com/thepaganrabbit/react-stylus",
+    "type": "git"
+  },
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
@@ -34,7 +39,8 @@
     "preset": "ts-jest",
     "testEnvironment": "node"
   },
+  "keywords": ["Styling", "ContextAPI"],
   "files": [
-    "lib"
+    "/lib"
   ]
 }
