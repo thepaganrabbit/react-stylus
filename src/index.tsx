@@ -1,6 +1,6 @@
 import React from 'react'
-import { ReactStylus } from './lib/ReactStylus'
+import { ReactStylus } from './ReactStylus'
 
 export const ReactStylusProvider = React.createContext<ReactStylus | null>(null)
 
-export * from './lib/ReactStylus';
+export * from './ReactStylus';

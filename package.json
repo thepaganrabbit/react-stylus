@@ -2,14 +2,39 @@
   "name": "react-stylus",
   "version": "1.0.0",
   "description": "A react styling library. ",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "@types/reactstylus.d.ts",
   "author": "thepaganrabbit",
   "license": "BSD",
   "scripts": {
-    "format": "prettier --config .prettierrc 'lib/**/*.ts' --write"
+    "build": "rollup -c",
+    "test": "jest",
+    "format": "prettier --config .prettierrc 'lib/**/*.ts' --write",
+    "main": "lib/index.js",
+    "module": "lib/index.es.js",
+    "jsnext:main": "lib/index.es.js"
+  },
+  "peerDependencies": {
+    "react": "*"
   },
   "devDependencies": {
+    "@types/jest": "^28.1.6",
     "@types/react": "^18.0.15",
-    "prettier": "^2.7.1"
-  }
+    "jest": "^28.1.3",
+    "prettier": "^2.7.1",
+    "rollup": "^2.77.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-typescript2": "^0.32.1",
+    "ts-jest": "^28.0.7",
+    "typescript": "^4.7.4"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  },
+  "files": [
+    "lib"
+  ]
 }

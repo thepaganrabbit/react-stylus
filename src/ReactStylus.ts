@@ -1,118 +1,118 @@
 import {
-    Colors,
-    ColorsByMode,
-    ColorsMode,
-    IsSet,
-    ModeSelect,
-    StatusColors,
-    ReactStylusProps,
     Theming,
-} from 'ReactStylus'
+    Colors,
+    ModeSelect,
+    IsSet,
+    ReactStylusProps,
+    ColorsMode,
+    ColorsByMode,
+    StatusColors,
+} from './types';
 
 export class ReactStylus implements Theming {
-    private colors?: Colors
-    private backgroundDark?: string
-    private backgroundLight?: string
-    private backgroundPale?: string
-    private textColorLight?: string
-    private textColorDark?: string
-    private textColorPale?: string
-    private tintColorLight?: string
-    private tintColorDark?: string
-    private tintColorPale?: string
-    private warningColorLight?: string
-    private warningColorDark?: string
-    private warningColorPale?: string
-    private dangerColorLight?: string
-    private dangerColorDark?: string
-    private dangerColorPale?: string
-    private successColorLight?: string
-    private successColorDark?: string
-    private successColorPale?: string
-    private complimentaryColorLight?: string
-    private complementaryColorDark?: string
-    private complementaryColorPale?: string
-    private mode!: ModeSelect
-    private willBeSet!: IsSet
+    private colors?: Colors;
+    private backgroundDark?: string;
+    private backgroundLight?: string;
+    private backgroundPale?: string;
+    private textColorLight?: string;
+    private textColorDark?: string;
+    private textColorPale?: string;
+    private tintColorLight?: string;
+    private tintColorDark?: string;
+    private tintColorPale?: string;
+    private warningColorLight?: string;
+    private warningColorDark?: string;
+    private warningColorPale?: string;
+    private dangerColorLight?: string;
+    private dangerColorDark?: string;
+    private dangerColorPale?: string;
+    private successColorLight?: string;
+    private successColorDark?: string;
+    private successColorPale?: string;
+    private complimentaryColorLight?: string;
+    private complementaryColorDark?: string;
+    private complementaryColorPale?: string;
+    private mode!: ModeSelect;
+    private willBeSet!: IsSet;
     constructor(props: ReactStylusProps) {
         Object.entries(props).forEach(
             ([key, value]) => ((this as any)[key] = value)
-        )
+        );
     }
     setMode(mode: ModeSelect): void {
-        this.mode = mode
+        this.mode = mode;
     }
     setWhatIsSet(isSet: IsSet) {
-        this.willBeSet = isSet
+        this.willBeSet = isSet;
     }
     whatIsSet(): IsSet {
-        return this.willBeSet
+        return this.willBeSet;
     }
     getMode(): string {
-        return this.mode
+        return this.mode;
     }
     getColors(): ColorsMode | void {
-        if (!this.willBeSet.colorsAreSet) return
-        if (!this.colors) return
+        if (!this.willBeSet.colorsAreSet) return;
+        if (!this.colors) return;
         switch (this.mode) {
             case ModeSelect.DARK:
                 return {
                     primary: this.colors.primaryDark,
                     secondary: this.colors.secondaryDark,
                     tertiary: this.colors.tertiaryDark,
-                }
+                };
             case ModeSelect.PALE:
                 return {
                     primary: this.colors.primaryPale,
                     secondary: this.colors.secondaryPale,
                     tertiary: this.colors.tertiaryPale,
-                }
+                };
             default:
                 return {
                     primary: this.colors.primaryLight,
                     secondary: this.colors.secondaryLight,
                     tertiary: this.colors.tertiaryLight,
-                }
+                };
         }
     }
     getBackgroundColor(): string | void {
         switch (this.mode) {
             case ModeSelect.DARK:
-                return this.backgroundDark
+                return this.backgroundDark;
             case ModeSelect.PALE:
-                return this.backgroundPale
+                return this.backgroundPale;
             default:
-                return this.backgroundLight
+                return this.backgroundLight;
         }
     }
     getTextColor(): string | void {
         switch (this.mode) {
             case ModeSelect.DARK:
-                return this.textColorDark
+                return this.textColorDark;
             case ModeSelect.PALE:
-                return this.textColorPale
+                return this.textColorPale;
             default:
-                return this.textColorLight
+                return this.textColorLight;
         }
     }
     getTint(): string | void {
         switch (this.mode) {
             case ModeSelect.DARK:
-                return this.tintColorDark
+                return this.tintColorDark;
             case ModeSelect.PALE:
-                return this.tintColorPale
+                return this.tintColorPale;
             default:
-                return this.tintColorLight
+                return this.tintColorLight;
         }
     }
     getComplementaryColors(): string | void {
         switch (this.mode) {
             case ModeSelect.DARK:
-                return this.complementaryColorDark
+                return this.complementaryColorDark;
             case ModeSelect.PALE:
-                return this.complementaryColorPale
+                return this.complementaryColorPale;
             default:
-                return this.complimentaryColorLight
+                return this.complimentaryColorLight;
         }
     }
     getColorsByMode(): ColorsByMode | void {
@@ -123,7 +123,7 @@ export class ReactStylus implements Theming {
             !this.willBeSet.statusColorsAreSet &&
             !this.willBeSet.textIsSet
         )
-            return
+            return;
         if (this)
             switch (this.mode) {
                 case ModeSelect.DARK:
@@ -137,7 +137,7 @@ export class ReactStylus implements Theming {
                             secondary: this.colors!.secondaryDark,
                             tertiary: this.colors!.tertiaryDark,
                         },
-                    }
+                    };
                 case ModeSelect.PALE:
                     return {
                         background: this.backgroundPale,
@@ -149,7 +149,7 @@ export class ReactStylus implements Theming {
                             secondary: this.colors!.secondaryPale,
                             tertiary: this.colors!.tertiaryPale,
                         },
-                    }
+                    };
                 default:
                     return {
                         background: this.backgroundLight,
@@ -161,30 +161,30 @@ export class ReactStylus implements Theming {
                             secondary: this.colors!.secondaryLight,
                             tertiary: this.colors!.tertiaryLight,
                         },
-                    }
+                    };
             }
     }
     getStatusColors(): StatusColors | void {
-        if (!this.willBeSet.statusColorsAreSet) return
+        if (!this.willBeSet.statusColorsAreSet) return;
         switch (this.mode) {
             case ModeSelect.DARK:
                 return {
                     warning: this.warningColorDark,
                     success: this.successColorDark,
                     danger: this.dangerColorDark,
-                }
+                };
             case ModeSelect.PALE:
                 return {
                     warning: this.warningColorPale,
                     success: this.successColorPale,
                     danger: this.dangerColorPale,
-                }
+                };
             default:
                 return {
                     warning: this.warningColorLight,
                     success: this.successColorLight,
                     danger: this.dangerColorLight,
-                }
+                };
         }
     }
 }
